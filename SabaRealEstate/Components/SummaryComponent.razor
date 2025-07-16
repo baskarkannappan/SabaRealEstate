@@ -1,0 +1,27 @@
+﻿<MudSimpleTable Style="overflow-x: auto;" Dense="true"> 
+    <tbody>
+        @foreach (var row in rows)
+        {
+            <tr>
+                @foreach (var x in row.Split(',' ))
+                {
+                    <td>@x</td>
+                }
+            </tr>
+        }
+    </tbody>
+</MudSimpleTable>
+
+@code { 
+    string[] rows = {
+        @"Property Type, Single Family", 
+         @"Building Type ,Single Family",
+          @"Storeys, Single Family",
+           @"Community Name, Single Family",
+            @"Title, Single Family",
+             @"Land Size, Single Family",
+              @"Age Of Buildinge, Single Family",
+               @"Annual Property Taxes, Single Family",
+                @"Parking Type, Single Family",
+    };
+}

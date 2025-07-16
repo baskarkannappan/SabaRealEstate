@@ -1,0 +1,44 @@
+﻿@using MudBlazor
+
+<MudCard  >
+    <MudGrid GutterSize="0">
+        <MudItem xs="12" md="6">
+            <MudCardMedia Image="@ImageUrl" Style="height:180px;"/>
+        </MudItem>
+        <MudItem xs="12" md="6">
+            <MudCardContent>
+                <MudText Typo="Typo.subtitle1" Color="Color.Primary" Bold="true" GutterBottom="true">@Price</MudText>
+                <MudText Typo="Typo.caption" Bold="true">@Address</MudText>
+                <MudText Typo="Typo.caption">@Location</MudText>
+                <br/>
+                <MudText Typo="Typo.overline" Color="Color.Secondary">MLS®: @MLSNumber</MudText>
+
+                <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1" Class="mt-2">
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.Bed" Size="Size.Small" Color="Color.Primary" />
+                        <MudText Typo="Typo.caption">@Bedrooms</MudText>
+                    </MudStack>
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.Bathtub" Size="Size.Small" Color="Color.Primary" />
+                        <MudText Typo="Typo.caption">@Bathrooms</MudText>
+                    </MudStack>
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="1">
+                        <MudIcon Icon="@Icons.Material.Filled.SquareFoot" Size="Size.Small" Color="Color.Primary" />
+                        <MudText Typo="Typo.caption">@SquareFeet</MudText>
+                    </MudStack>
+                </MudStack>
+            </MudCardContent>
+        </MudItem>
+    </MudGrid>
+</MudCard>
+
+@code {
+    [Parameter] public string ImageUrl { get; set; } 
+    [Parameter] public string Price { get; set; }  
+    [Parameter] public string Address { get; set; }  
+    [Parameter] public string Location { get; set; }  
+    [Parameter] public string MLSNumber { get; set; } 
+    [Parameter] public int Bedrooms { get; set; }  
+    [Parameter] public int Bathrooms { get; set; }  
+    [Parameter] public int SquareFeet { get; set; }  
+}

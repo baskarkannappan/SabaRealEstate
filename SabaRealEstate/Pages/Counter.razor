@@ -1,0 +1,43 @@
+﻿@page "/counter"
+
+@inject HttpClient Http
+
+<PageTitle>Counter</PageTitle>
+
+<MudText Typo="Typo.h3" GutterBottom="true">Counter</MudText>
+
+<MudText Class="mb-4">Current count: @currentCount</MudText>
+
+<MudButton Color="Color.Primary" Variant="Variant.Filled" @onclick="IncrementCount">Click me</MudButton>
+
+<MudButton Color="Color.Secondary" Variant="Variant.Outlined" OnClick="LoadSheetData">Load Sheet Data</MudButton>
+
+@if (sheetData != null)
+{
+    <table class="table">
+        @foreach (var row in sheetData)
+        {
+            <tr>
+                @foreach (var cell in row)
+                {
+                    <td>@cell</td>
+                }
+            </tr>
+        }
+    </table>
+}
+
+@code {
+    private int currentCount = 0;
+    private List<List<object>>? sheetData;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private async Task LoadSheetData()
+    {
+       
+    }
+}

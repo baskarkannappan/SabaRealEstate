@@ -1,0 +1,36 @@
+﻿<MudNavMenu>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
+    <MudNavLink Href="BuyPage" Icon="@Icons.Material.Filled.ShoppingCart">Buy</MudNavLink>
+    <MudNavLink Href="sell" Icon="@Icons.Material.Filled.Sell">Sell</MudNavLink>
+    <MudNavLink Href="evaluation" Icon="@Icons.Material.Filled.Assessment">Evaluation</MudNavLink>
+    @* <MudNavLink Href="listings" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink> *@
+   @*  <MudNavMenu>
+        <MudNavGroup Title="Buy" Icon="@Icons.Material.Filled.ShoppingCart" Expanded="_buyExpanded">
+            <MudNavLink Href="/buy/condo" Icon="@Icons.Material.Filled.Apartment">Condo</MudNavLink>
+            <MudNavLink Href="/buy/house" Icon="@Icons.Material.Filled.Home">House</MudNavLink>
+            <MudNavLink Href="/buy/parking" Icon="@Icons.Material.Filled.LocalParking">Parking</MudNavLink>
+            <MudNavLink Href="/buy/townhouse" Icon="@Icons.Material.Filled.HolidayVillage">TownHouse</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Sell" Icon="@Icons.Material.Filled.Sell" Expanded="_sellExpanded">
+            <MudNavLink Href="/sell/condo" Icon="@Icons.Material.Filled.Apartment">Condo</MudNavLink>
+            <MudNavLink Href="/sell/house" Icon="@Icons.Material.Filled.Home">House</MudNavLink>
+            <MudNavLink Href="/sell/parking" Icon="@Icons.Material.Filled.LocalParking">Parking</MudNavLink>
+            <MudNavLink Href="/sell/townhouse" Icon="@Icons.Material.Filled.HolidayVillage">TownHouse</MudNavLink>
+        </MudNavGroup>
+        <MudNavGroup Title="Rent" Icon="@Icons.Material.Filled.HouseSiding" Expanded="@_rentExpanded"  >
+            <MudNavLink Href="/rent/condo" Icon="@Icons.Material.Filled.Apartment">Condo</MudNavLink>
+            <MudNavLink Href="/rent/house" Icon="@Icons.Material.Filled.Home">House</MudNavLink>
+            <MudNavLink Href="/rent/parking" Icon="@Icons.Material.Filled.LocalParking">Parking</MudNavLink>
+            <MudNavLink Href="/rent/townhouse" Icon="@Icons.Material.Filled.HolidayVillage">TownHouse</MudNavLink>
+        </MudNavGroup>
+    </MudNavMenu> *@
+ 
+    <MudNavLink Href="contactus" Icon="@Icons.Material.Filled.ContactMail">Contact Us</MudNavLink>
+    @* <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Weather</MudNavLink> *@
+</MudNavMenu>
+
+@code {
+    private bool _buyExpanded = false;
+    private bool _sellExpanded = false;
+    private bool _rentExpanded = false;
+}

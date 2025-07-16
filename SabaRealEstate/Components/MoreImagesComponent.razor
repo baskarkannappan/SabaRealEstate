@@ -1,0 +1,73 @@
+﻿<MudDialog Style="height: auto">
+    <DialogContent>
+
+        @if (ImageUrls.Count == 0)
+        {
+            <MudText>No images available.</MudText>
+        }
+        else
+        {
+            <MudGrid GutterSize="2">
+                @foreach (var url in ImageUrls)
+                {
+                    <MudItem xs="12">
+                        <MudImage Src="@url" Alt="Property Image"
+                                  Style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;" />
+                    </MudItem>
+                }
+            </MudGrid>
+        }
+
+
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Secondary" OnClick="Ok">Close</MudButton>
+    </DialogActions>
+</MudDialog>
+
+
+@code {
+
+    [Parameter] public SabaRealEstate.Models.ListingModel Listing { get; set; }
+    [CascadingParameter] private IMudDialogInstance MudDialog { get; set; } 
+    [Inject] private HttpClient HttpClient { get; set; }
+
+    private string _licenseText;
+    private bool _loading;
+    private List<string> ImageUrls = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _loading = true;
+        var response = await HttpClient.GetAsync("https://raw.githubusercontent.com/MudBlazor/MudBlazor/master/LICENSE");
+        _licenseText = await response.Content.ReadAsStringAsync();
+
+        var allImages = new List<string>
+        {
+            Listing.ImageUrl,
+            Listing.Image2,
+            Listing.Image3,
+            Listing.Image4,
+            Listing.Image5,
+            Listing.Image6,
+            Listing.Image7,
+            Listing.Image8,
+            Listing.Image9,
+            Listing.Image10,
+            Listing.Image11,
+            Listing.Image12,
+            Listing.Image13,
+            Listing.Image14,
+            Listing.Image15
+        };
+
+        ImageUrls = allImages
+        .Where(url => !string.IsNullOrWhiteSpace(url))
+        .ToList();
+
+        _loading = false;
+    }
+
+    private void Ok() => MudDialog.Close(DialogResult.Ok(true));
+}

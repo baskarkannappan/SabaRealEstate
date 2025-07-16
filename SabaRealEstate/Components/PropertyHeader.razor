@@ -1,0 +1,35 @@
+﻿@using MudBlazor
+
+<MudPaper Class="pa-3">
+    <MudGrid AlignItems="AlignItems.Center" Justify="Justify.SpaceBetween" GutterSize="2"> 
+        <MudItem xs="12" sm="8">
+            <MudText Typo="Typo.h6" Color="Color.Primary" Bold="true">@Listing.Price</MudText>
+            <MudText Typo="Typo.subtitle2" Bold="true">@Listing.Address</MudText>
+            <MudText Typo="Typo.body2">@Listing.Location</MudText>
+            <MudText Typo="Typo.caption" Color="Color.Secondary">MLS® Number: @Listing.MLSNumber</MudText>
+        </MudItem> 
+        <MudItem xs="12" sm="12">
+            <MudStack Row="true" Wrap="Wrap.Wrap" AlignItems="AlignItems.Center" Justify="Justify.FlexStart" Spacing="1">
+                <MudStack AlignItems="AlignItems.Center" Class="pa-1">
+                    <MudIcon Icon="@Icons.Material.Filled.Bed" Color="Color.Primary" Size="Size.Small" />
+                    <MudText Typo="Typo.caption">@Listing.Bedrooms</MudText>
+                    <MudText Typo="Typo.overline">Bedrooms</MudText>
+                </MudStack>
+                <MudStack AlignItems="AlignItems.Center" Class="pa-1">
+                    <MudIcon Icon="@Icons.Material.Filled.Bathtub" Color="Color.Primary" Size="Size.Small" />
+                    <MudText Typo="Typo.caption">@Listing.Bathrooms</MudText>
+                    <MudText Typo="Typo.overline">Bathrooms</MudText>
+                </MudStack>
+                <MudStack AlignItems="AlignItems.Center" Class="pa-1">
+                    <MudIcon Icon="@Icons.Material.Filled.SquareFoot" Color="Color.Primary" Size="Size.Small" />
+                    <MudText Typo="Typo.caption">@Listing.SquareFeet</MudText>
+                    <MudText Typo="Typo.overline">Sq. Ft.</MudText>
+                </MudStack>
+            </MudStack>
+        </MudItem> 
+    </MudGrid>
+</MudPaper>
+
+@code {
+    [Parameter] public ListingModel Listing { get; set; }
+}

@@ -1,0 +1,95 @@
+﻿@page "/BuyPage"
+@inject SabaRealEstate.Services.GoogleSheetService GoogleSheetService
+@inject IDialogService DialogService
+
+
+@if (listings == null)
+{
+    <MudText>Loading...</MudText>
+}
+else
+{
+    <MudDataGrid T="SabaRealEstate.Models.ListingModel" Items="@listings" Filterable="true" SortMode="SortMode.Multiple" Groupable="true" Dense="true" Bordered="false" RowsPerPage="5">
+        <Columns>
+
+            <TemplateColumn Title="Info">
+                <CellTemplate>
+                    <ListingSummary ImageUrl="@context.Item.ImageUrl"
+                                    Price="@context.Item.Price"
+                                    Address="@context.Item.Address"
+                                    Location="@context.Item.Location"
+                                    MLSNumber="@context.Item.MLSNumber"
+                                    Bedrooms="@context.Item.Bedrooms"
+                                    Bathrooms="@context.Item.Bathrooms"
+                                    SquareFeet="@context.Item.SquareFeet" />
+                </CellTemplate>
+            </TemplateColumn>
+
+            <PropertyColumn Property="x => x.City" Title="City" />
+
+            <TemplateColumn Title="Actions" Style="align-content:end">
+                <CellTemplate>
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Info" IconColor="Color.Tertiary" Size="Size.Small" OnClick="() => OpenDialogAsync(context.Item)">Full Details</MudButton>
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Image" IconColor="Color.Tertiary" Size="Size.Small" OnClick="() => OpenImagesDialogAsync(context.Item)">More Images</MudButton>
+                </CellTemplate>
+            </TemplateColumn>
+
+        </Columns>
+
+        <PagerContent>
+            <MudDataGridPager T="SabaRealEstate.Models.ListingModel" />
+        </PagerContent>
+
+    </MudDataGrid>
+
+}
+
+
+@code {
+    private List<SabaRealEstate.Models.ListingModel> listings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        listings = await GoogleSheetService.GetListingsAsync();
+        await ConvertImageUrlsAsync();
+    }
+
+    private Task ConvertImageUrlsAsync()
+    {
+        foreach (var listing in listings)
+        {
+            if (!string.IsNullOrEmpty(listing.ImageUrl) && listing.ImageUrl.Contains("drive.google.com/file/d/"))
+            {
+                var parts = listing.ImageUrl.Split('/');
+                var fileId = parts.FirstOrDefault(p => p.Length > 15 && !p.Contains("file") && !p.Contains("d"));
+                if (!string.IsNullOrEmpty(fileId))
+                {
+                    listing.ImageUrl = $"https://drive.google.com/uc?export=view&id={fileId}";
+                }
+            }
+        }
+        return Task.CompletedTask;
+    }
+
+    private Task OpenDialogAsync(SabaRealEstate.Models.ListingModel listing)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Listing", listing }
+        };
+
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        return DialogService.ShowAsync<DialogScrollableExample_Dialog>("Property Details", parameters, options);
+    }
+
+    private Task OpenImagesDialogAsync(SabaRealEstate.Models.ListingModel listing)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Listing", listing }
+        };
+
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        return DialogService.ShowAsync<MoreImagesComponent>("Image Details", parameters, options);
+    }
+}

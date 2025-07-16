@@ -1,0 +1,87 @@
+﻿@using MudBlazor
+
+<MudPaper Class="pa-3">
+    <MudText Typo="Typo.subtitle1" GutterBottom="true">Property Summary</MudText>
+
+    <MudGrid GutterSize="2">
+        <MudItem xs="6" sm="4" md="6" >
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Home" Color="Color.Primary" Size="Size.Small" Class="me-1" /> Property Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.PropertyType</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Apartment" Color="Color.Primary" Size="Size.Small" Class="me-1" /> Building Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.BuildingType</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.ViewAgenda" Color="Color.Info" Size="Size.Small" Class="me-1" /> Storeys
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.Storeys</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.SquareFoot" Color="Color.Info" Size="Size.Small" Class="me-1" /> Square Footage
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.SquareFootage</MudText>
+        </MudItem>
+
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.LocationCity" Color="Color.Success" Size="Size.Small" Class="me-1" /> Community Name
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.CommunityName</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Map" Color="Color.Success" Size="Size.Small" Class="me-1" /> Neighbourhood Name
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.NeighbourhoodName</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Description" Color="Color.Primary" Size="Size.Small" Class="me-1" /> Title
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.Title</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Landscape" Color="Color.Info" Size="Size.Small" Class="me-1" /> Land Size
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.LandSize</MudText>
+        </MudItem>
+
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.CalendarToday" Color="Color.Warning" Size="Size.Small" Class="me-1" /> Built in
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.BuiltIn</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Color="Color.Success" Size="Size.Small" Class="me-1" /> Annual Property Taxes
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.AnnualPropertyTaxes</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.LocalParking" Color="Color.Primary" Size="Size.Small" Class="me-1" /> Parking Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.ParkingType</MudText>
+        </MudItem>
+        <MudItem xs="6" sm="4" md="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Timer" Color="Color.Warning" Size="Size.Small" Class="me-1" /> Time on REALTOR.ca
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.TimeOnRealtor</MudText>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
+@code {
+
+    [Parameter] public ListingModel Listing { get; set; } 
+}

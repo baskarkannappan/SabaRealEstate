@@ -1,0 +1,39 @@
+﻿@using MudBlazor
+
+<MudPaper Class="pa-2">
+    <MudGrid GutterSize="1">
+        <MudItem xs="12">
+            <MudText Typo="Typo.subtitle1" Color="Color.Primary" Bold="true">@Price</MudText>
+            <MudText Typo="Typo.caption" Bold="true">@Address</MudText>
+            <MudText Typo="Typo.caption">@Location</MudText>
+            <MudText Typo="Typo.overline" Color="Color.Secondary">MLS®: @MLSNumber</MudText>
+        </MudItem>
+
+        <MudItem xs="12">
+            <MudStack Row="true" AlignItems="AlignItems.Center">
+                <MudStack AlignItems="AlignItems.Center" Spacing="0">
+                    <MudIcon Icon="@Icons.Material.Filled.Bed" Size="Size.Small" Color="Color.Primary" />
+                    <MudText Typo="Typo.caption">@Bedrooms</MudText>
+                </MudStack>
+                <MudStack AlignItems="AlignItems.Center" Spacing="0">
+                    <MudIcon Icon="@Icons.Material.Filled.Bathtub" Size="Size.Small" Color="Color.Primary" />
+                    <MudText Typo="Typo.caption">@Bathrooms</MudText>
+                </MudStack>
+                <MudStack AlignItems="AlignItems.Center" Spacing="0">
+                    <MudIcon Icon="@Icons.Material.Filled.SquareFoot" Size="Size.Small" Color="Color.Primary" />
+                    <MudText Typo="Typo.caption">@SquareFeet</MudText>
+                </MudStack>
+            </MudStack>
+        </MudItem>
+    </MudGrid>
+</MudPaper>
+
+@code {
+    [Parameter] public string Price { get; set; } = string.Empty;
+    [Parameter] public string Address { get; set; } = string.Empty;
+    [Parameter] public string Location { get; set; } = string.Empty;
+    [Parameter] public string MLSNumber { get; set; } = string.Empty;
+    [Parameter] public int Bedrooms { get; set; }
+    [Parameter] public int Bathrooms { get; set; }
+    [Parameter] public int SquareFeet { get; set; }
+}

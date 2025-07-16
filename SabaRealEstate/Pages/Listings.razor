@@ -1,0 +1,61 @@
+﻿@page "/listings"
+@inject HttpClient Http
+
+<h3>Real Estate Listings</h3>
+
+@if (listings == null)
+{
+    <p>Loading listings from Google Sheets...</p>
+}
+else
+{
+    foreach (var item in listings)
+    {
+        <div class="card p-3 m-2 shadow-sm border">
+            <p><strong>@item.Title</strong></p>
+            <p>Price: $@item.Price</p> 
+        </div>
+    }
+}
+
+@code {
+    private List<Listing> listings;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // ✅ Directly connect to public Google Sheet CSV export
+        var url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSkV0R6VamFzi9woaH6vCtYwOcELa1iOQKox4Sk3IqX_hPngfmiGzNU9Iwvn-Z9en-rzxWAi1MdTUJy/pub?output=csv";
+        var csv = await Http.GetStringAsync(url);
+        listings = ParseCsv(csv);
+    }
+
+    private List<Listing> ParseCsv(string csv)
+    {
+        var lines = csv.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+        var results = new List<Listing>();
+
+        for (int i = 1; i < lines.Length; i++) // skip header
+        {
+            var fields = lines[i].Split(',');
+
+            if (fields.Length >= 3)
+            {
+                results.Add(new Listing
+                    {
+                        Id = fields[0],
+                        Title = fields[1],
+                        Price = fields[2] 
+                    });
+            }
+        }
+
+        return results;
+    }
+
+    public class Listing
+    {
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Price { get; set; } 
+    }
+}

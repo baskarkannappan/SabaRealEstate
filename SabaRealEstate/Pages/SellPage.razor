@@ -1,0 +1,52 @@
+﻿@page "/sell"
+@using MudBlazor
+@inject NavigationManager Navigation
+
+<MudPaper Class="p-6 mx-auto">
+
+    <MudText Typo="Typo.h4" Color="Color.Primary" Class="mb-2">Free Condo Evaluation</MudText>
+
+    <MudDivider Class="mb-4" />
+
+    <MudText Typo="Typo.body1" Class="mb-3">
+        Thinking of selling your property?
+        Get a <strong>free, professional evaluation</strong> to see what your property is worth in today’s market.
+    </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-3">
+        Simply share your suite details and upgrades (parking, flooring, appliances, etc.).
+        I’ll prepare a detailed <strong>Comparative Market Analysis (CMA)</strong> using the latest MLS® data and send it directly to your email.
+    </MudText>
+
+    <MudText Typo="Typo.body1" Class="mb-4">
+        You'll get clear, current market insights so you can decide with confidence — no cost, no obligation.
+    </MudText>
+
+    <MudText Typo="Typo.h6" Color="Color.Primary" Class="mt-4 mb-2">What’s Included:</MudText>
+
+    <MudList T="object" Dense="true" Class="mb-4">
+        <MudListItem T="object">Accurate condo market evaluation</MudListItem>
+        <MudListItem T="object">24/7 exposure on MLS®, Realtor.ca®, and my website</MudListItem>
+        <MudListItem T="object">Professional photos, staging advice & open houses</MudListItem>
+        <MudListItem T="object">Virtual and HD video tours</MudListItem>
+        <MudListItem T="object">Help for first-time buyers & sellers</MudListItem>
+        <MudListItem T="object">Guidance on GST/HST rebate applications</MudListItem>
+        <MudListItem T="object">Rental management services for investors</MudListItem>
+    </MudList>
+
+
+    <MudText Typo="Typo.body1" Class="mb-4">
+        Questions? Contact me anytime — I’m here to help.
+    </MudText>
+
+    <MudButton Color="Color.Primary" Variant="Variant.Filled" Size="Size.Large" OnClick="@GoToEvaluation">
+        Request Your Free Evaluation
+    </MudButton>
+
+</MudPaper>
+@code {
+    private void GoToEvaluation()
+    {
+        Navigation.NavigateTo("/evaluation");
+    }
+}

@@ -1,0 +1,161 @@
+﻿@using MudBlazor
+
+<MudPaper Class="pa-3">
+
+    <MudText Typo="Typo.subtitle1" GutterBottom="true">Building</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Bathtub" Size="Size.Small" Color="Color.Info" Class="me-1" /> Total
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.TotalBathrooms</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Bathtub" Size="Size.Small" Color="Color.Info" Class="me-1" /> Partial
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.PartialBathrooms</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Interior Features</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.ViewModule" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Flooring
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.Flooring</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Layers" Size="Size.Small" Color="Color.Secondary" Class="me-1" /> Basement Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.BasementType</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Building Features</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Home" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Style
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.BuildingStyle</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Heating & Cooling</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.LocalFireDepartment" Size="Size.Small" Color="Color.Error" Class="me-1" /> Fireplace Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.FireplaceType</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Whatshot" Size="Size.Small" Color="Color.Error" Class="me-1" /> Heating Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.HeatingType</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Utilities</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Plumbing" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Utility Sewer
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.UtilitySewer</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.InvertColors" Size="Size.Small" Color="Color.Info" Class="me-1" /> Water
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.Water</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Exterior Features</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Roofing" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Roof Style
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.RoofStyle</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Wallpaper" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Exterior Finish
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.ExteriorFinish</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Neighbourhood Features</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="12">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Pets" Size="Size.Small" Color="Color.Success" Class="me-1" /> Community Features
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.CommunityFeatures</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <MudText Typo="Typo.subtitle1" Bold="true">Maintenance or Condo Information</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="12">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.AttachMoney" Size="Size.Small" Color="Color.Success" Class="me-1" /> Maintenance Fees
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.MaintenanceFees</MudText>
+        </MudItem>
+    </MudGrid>
+
+    <MudDivider Class="my-2" />
+
+    <u><MudText Typo="Typo.subtitle1" Bold="true">Parking</MudText></u>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.LocalParking" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Parking Type
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.ParkingType</MudText>
+        </MudItem>
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.LocalParking" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Total Parking Spaces
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.TotalParkingSpaces</MudText>
+        </MudItem>
+    </MudGrid>
+    <MudDivider Class="my-2" />
+    <MudText Typo="Typo.subtitle1" Bold="true">Measurements</MudText>
+    <MudGrid GutterSize="2">
+        <MudItem xs="6">
+            <MudText Typo="Typo.caption" Bold="true">
+                <MudIcon Icon="@Icons.Material.Filled.Scale" Size="Size.Small" Color="Color.Primary" Class="me-1" /> Square Footage
+            </MudText>
+            <MudText Typo="Typo.body2">@Listing.SquareFootage</MudText>
+        </MudItem>
+    </MudGrid>
+
+</MudPaper>
+
+@code {
+    [Parameter] public ListingModel Listing { get; set; }
+}
